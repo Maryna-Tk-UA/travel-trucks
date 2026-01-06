@@ -5,10 +5,11 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { CamperLayoutProps, CamperPageProps } from "@/types/props";
+
 import { prefetchCamper } from "./prefetch";
 import { getSingleCamper } from "@/lib/api";
 import css from "./Camper.module.css";
+import { CamperLayoutProps, CamperPageProps } from "@/types/props";
 
 export async function generateMetadata({ params }: CamperPageProps) {
   const { id } = await params;

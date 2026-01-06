@@ -2,9 +2,10 @@
 
 import { getCampers } from "@/lib/api";
 import { Camper } from "@/types/camper";
-import { CatalogLoadMoreProps } from "@/types/props";
+
 import { useState } from "react";
 import CamperList from "../CamperList/CamperList";
+import { CatalogLoadMoreProps } from "@/types/props";
 
 const CatalogLoadMore = ({ initialItems, total }: CatalogLoadMoreProps) => {
   const [items, setItems] = useState<Camper[]>(initialItems);

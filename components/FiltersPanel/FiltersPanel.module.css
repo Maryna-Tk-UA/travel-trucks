@@ -1,0 +1,168 @@
+.panel {
+  width: 360px;
+  max-width: 100%;
+  background: #fff;
+  padding: 18px 16px;
+  border-radius: 18px;
+}
+
+.block {
+  margin-bottom: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  color: #7a7a7a;
+  margin-bottom: 8px;
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #6b7280;
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  width: 310px;
+  border-radius: 12px;
+  border: 1px solid #ececec;
+  background: #f6f6f6;
+  padding: 0 12px 0 40px;
+  outline: none;
+  font-size: 14px;
+}
+
+.filtersTitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 10px 0 14px;
+  font-weight: 600;
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 18px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #111827;
+}
+
+.optionsGrid,
+.optionsGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card {
+  cursor: pointer;
+  display: block;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.cardInner {
+  height: 92px;
+  border-radius: 14px;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 80ms ease;
+}
+
+.card:hover .cardInner {
+  border-color: #d9d9d9;
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+}
+
+.card:active .cardInner {
+  transform: translateY(1px);
+}
+
+.card input:focus-visible + .cardInner {
+  outline: 2px solid rgba(255, 77, 79, 0.35);
+  outline-offset: 3px;
+}
+
+.card input:checked + .cardInner {
+  border: 2px solid #ff4d4f;
+}
+
+.optionIcon {
+  color: #111827;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.optionLabel {
+  font-size: 13px;
+  color: #111827;
+  text-align: center;
+}
+
+.btnGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.searchBtn {
+  height: 46px;
+  border: none;
+  border-radius: 999px;
+  background: #ff4d4f;
+  color: #fff;
+  font-weight: 700;
+}
+
+.searchBtn:hover {
+  filter: brightness(0.98);
+}
+
+.resetBtn {
+  height: 46px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  border-color: #d9d9d9;
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+}
