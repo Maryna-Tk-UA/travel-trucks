@@ -35,3 +35,5 @@ export type Camper = {
   water: boolean;
   gallery: CamperImage[];
 };
+
+export type CamperForm = "panelTruck" | "fullyIntegrated" | "alcove";

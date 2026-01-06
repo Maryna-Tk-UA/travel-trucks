@@ -1,0 +1,11 @@
+.shell {
+  display: flex;
+}
+
+.content {
+  background-color: aqua;
+}
+
+.aside {
+  background-color: bisque;
+}
