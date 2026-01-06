@@ -1,8 +1,21 @@
+"use client";
+
 import { EQUIPMENT_OPTIONS, VEHICLE_TYPE_OPTIONS } from "@/constants/filter";
 import Icon from "../Icon/Icon";
 import css from "./FiltersPanel.module.css";
+import { useCampersStore } from "@/lib/store/useCampersStore";
 
 const FiltersPanel = () => {
+  const location = useCampersStore((s) => s.filters.location);
+  const equipment = useCampersStore((s) => s.filters.equipment);
+  const vehicleType = useCampersStore((s) => s.filters.vehicleType);
+
+  const setLocation = useCampersStore((s) => s.setLocation);
+  const toggleEquipment = useCampersStore((s) => s.toggleEquipment);
+  const setVehicleType = useCampersStore((s) => s.setVehicleType);
+
+  const resetFilters = useCampersStore((s) => s.resetFilters);
+  const searchCampers = useCampersStore((s) => s.searchCampers);
   return (
     <aside className={css.panel} aria-label="Filters">
       <div className={css.block}>
@@ -17,8 +30,9 @@ const FiltersPanel = () => {
             id="location"
             className={css.input}
             type="text"
-            placeholder="Kyiv, Ukraine"
-            defaultValue="Kyiv, Ukraine"
+            placeholder="Ukraine, Kyiv"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
           />
         </div>
 
@@ -35,12 +49,13 @@ const FiltersPanel = () => {
                   type="checkbox"
                   name="equipment"
                   value={o.key}
-                  defaultChecked={o.key === ""}
+                  checked={equipment.includes(o.key)}
+                  onChange={() => toggleEquipment(o.key)}
                 />
                 <span className={css.cardInner}>
                   <Icon
                     name={o.iconName}
-                    size={22}
+                    size={32}
                     className={css.optionIcon}
                   />
                   <span className={css.optionLabel}>{o.label}</span>
@@ -61,7 +76,8 @@ const FiltersPanel = () => {
                   type="radio"
                   name="vehicleType"
                   value={o.key}
-                  defaultChecked={o.key === ""}
+                  checked={vehicleType === o.key}
+                  onChange={() => setVehicleType(o.key)}
                 />
                 <span className={css.cardInner}>
                   <Icon
@@ -77,10 +93,21 @@ const FiltersPanel = () => {
         </fieldset>
 
         <div className={css.btnGroup}>
-          <button type="button" className={css.searchBtn}>
+          <button
+            type="button"
+            className={css.searchBtn}
+            onClick={() => searchCampers()}
+          >
             Search
           </button>
-          <button type="button" className={css.resetBtn}>
+          <button
+            type="button"
+            className={css.resetBtn}
+            onClick={() => {
+              resetFilters();
+              searchCampers();
+            }}
+          >
             Reset
           </button>
         </div>

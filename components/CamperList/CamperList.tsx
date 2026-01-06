@@ -1,5 +1,5 @@
-import { Camper } from "@/types/camper";
-import CamperItem from "../CamperItem/CamperItem";
+import type { Camper } from "@/types/camper";
+import Link from "next/link";
 
 type CamperListProps = {
   campers: Camper[];
@@ -8,8 +8,10 @@ type CamperListProps = {
 const CamperList = ({ campers }: CamperListProps) => {
   return (
     <ul>
-      {campers.map((camper) => (
-        <CamperItem key={camper.id} item={camper} />
+      {campers.map((item) => (
+        <li key={item.id}>
+          <Link href={`/catalog/${item.id}`}>{item.name}</Link>
+        </li>
       ))}
     </ul>
   );

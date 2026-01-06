@@ -1,41 +1,29 @@
 "use client";
 
-import { getCampers } from "@/lib/api";
-import { Camper } from "@/types/camper";
-
-import { useState } from "react";
+import { useEffect } from "react";
 import CamperList from "../CamperList/CamperList";
 import { CatalogLoadMoreProps } from "@/types/props";
+import { useCampersStore } from "@/lib/store/useCampersStore";
 
 const CatalogLoadMore = ({ initialItems, total }: CatalogLoadMoreProps) => {
-  const [items, setItems] = useState<Camper[]>(initialItems);
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const campers = useCampersStore((s) => s.campers);
 
-  const hasMore = items.length < total;
+  const isLoading = useCampersStore((s) => s.isLoading);
+  const error = useCampersStore((s) => s.error);
+  const initCampers = useCampersStore((s) => s.initCampers);
+  const loadMore = useCampersStore((s) => s.loadMore);
+  const hasMore = useCampersStore((s) => s.hasMore);
 
-  const loadMore = async () => {
-    if (isLoading || !hasMore) return;
+  useEffect(() => {
+    initCampers(initialItems, total);
+  }, [initialItems, total, initCampers]);
 
-    const nextPage = page + 1;
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const res = await getCampers({ page: nextPage });
-      setItems((prev) => [...prev, ...res.items]);
-      setPage(nextPage);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : "Unknown error");
-    } finally {
-      setIsLoading(false);
-    }
-  };
   return (
     <div>
-      <CamperList campers={items} />
+      <CamperList campers={campers} />
+
       {error && <p>{error}</p>}
+
       {hasMore && (
         <button type="button" onClick={loadMore} disabled={isLoading}>
           {isLoading ? "Loading..." : "Load More"}
