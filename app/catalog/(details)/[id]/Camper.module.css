@@ -2,10 +2,251 @@
   display: flex;
 }
 
-.content {
-  background-color: aqua;
+.featuresCard {
+  background: #ffffff;
+  border: 1px solid rgba(16, 24, 40, 0.12);
+  border-radius: 16px;
+  padding: 24px;
 }
 
-.aside {
-  background-color: bisque;
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.blockTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.details {
+  margin: 0;
+}
+
+.detailRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(16, 24, 40, 0.08);
+}
+
+.detailRow:first-child {
+  border-top: 0;
+}
+
+.detailRow dt {
+  color: rgba(16, 24, 40, 0.72);
+}
+
+.detailRow dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* booking */
+.bookingCard {
+  background: #ffffff;
+  border: 1px solid rgba(16, 24, 40, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.bookingTitle {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bookingText {
+  margin: 0 0 16px;
+  color: rgba(16, 24, 40, 0.7);
+  font-size: 14px;
+}
+
+.bookingForm {
+  display: grid;
+  gap: 12px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 0;
+  outline: none;
+  border-radius: 12px;
+  background: #f2f4f7;
+  padding: 14px 16px;
+  font-size: 14px;
+}
+
+.textarea {
+  resize: none;
+}
+
+.sendBtn {
+  justify-self: center;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 44px;
+  background: #e44848;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.top {
+  padding: 24px 0;
+}
+
+.topHead {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #101828;
+}
+
+.metaRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.metaItem {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: rgba(16, 24, 40, 0.75);
+  font-size: 14px;
+}
+
+.star,
+.pin {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  display: block;
+  fill: currentColor;
+}
+
+.metaText {
+  line-height: 1.3;
+}
+
+.price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.galleryImg {
+  width: 100%;
+  height: 312px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.desc {
+  margin: 0;
+  color: rgba(16, 24, 40, 0.7);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* --- REVIEWS --- */
+.reviewsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 24px;
+}
+
+.reviewItem {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: #e44848;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.starSvg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.reviewBody {
+  display: grid;
+  gap: 8px;
+}
+
+.reviewHead {
+  display: grid;
+  gap: 4px;
+}
+
+.reviewerName {
+  margin: 0;
+  font-weight: 600;
+  color: #101828;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  line-height: 1;
+}
+
+.reviewText {
+  margin: 0;
+  color: rgba(16, 24, 40, 0.7);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+.emptyReviews {
+  margin: 0;
+  color: rgba(16, 24, 40, 0.7);
 }

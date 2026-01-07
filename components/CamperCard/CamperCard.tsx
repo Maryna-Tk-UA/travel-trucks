@@ -62,14 +62,18 @@ const CamperCard = ({ camper }: CamperCardProps) => {
 
         <div className={css.metaRow}>
           <div className={css.rating}>
-            <span className={css.star}>★</span>
+            <svg className={css.star} aria-hidden="true">
+              <use href={`${SPRITE_PATH}#icon-star-pressed`} />
+            </svg>
             <span>
               {camper.rating.toFixed(1)} ({reviewsCount} Reviews)
             </span>
           </div>
 
           <div className={css.location}>
-            <span className={css.pin}>📍</span>
+            <svg className={css.pin} aria-hidden="true">
+              <use href={`${SPRITE_PATH}#icon-Map`} />
+            </svg>
             <span>{camper.location}</span>
           </div>
         </div>

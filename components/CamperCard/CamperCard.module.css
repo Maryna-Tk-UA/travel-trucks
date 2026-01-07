@@ -88,12 +88,13 @@
   gap: 8px;
 }
 
-.star {
-  font-size: 14px;
-}
-
+.star,
 .pin {
-  font-size: 14px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  display: block;
+  fill: currentColor;
 }
 
 .desc {
@@ -101,7 +102,7 @@
   color: #6b7280;
 
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* як на макеті — коротко */
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

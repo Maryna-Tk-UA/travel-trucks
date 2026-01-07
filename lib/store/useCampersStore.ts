@@ -34,7 +34,6 @@ type CampersState = {
   toggleFavorite: (id: string) => void;
   isFavorite: (id: string) => boolean;
 
-  // searchCampers: (page?: number) => Promise<void>;
   searchCampers: () => Promise<void>;
   loadMore: () => Promise<void>;
   hasMore: boolean;
@@ -156,7 +155,6 @@ export const useCampersStore = create<CampersState>()(
               page: nextPage,
               total: res.total,
               isLoading: false,
-              // ✅ ключове: якщо прийшло менше PER_PAGE — це кінець
               hasMore:
                 res.items.length === PER_PAGE && unique.length < res.total,
             };

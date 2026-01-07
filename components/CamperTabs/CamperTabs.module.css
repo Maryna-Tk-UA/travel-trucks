@@ -1,0 +1,29 @@
+.tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.12);
+  margin: 0 0 24px;
+}
+
+.tab {
+  position: relative;
+  padding: 12px 0;
+  color: rgba(16, 24, 40, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.active {
+  color: #101828;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 3px;
+  width: 100%;
+  background: #e44848;
+  border-radius: 999px;
+}
