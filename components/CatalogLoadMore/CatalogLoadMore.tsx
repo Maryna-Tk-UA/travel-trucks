@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import CamperList from "../CamperList/CamperList";
 import { CatalogLoadMoreProps } from "@/types/props";
 import { useCampersStore } from "@/lib/store/useCampersStore";
+import css from "./CatalogLoadMore.module.css";
 
 const CatalogLoadMore = ({ initialItems, total }: CatalogLoadMoreProps) => {
   const campers = useCampersStore((s) => s.campers);
-
   const isLoading = useCampersStore((s) => s.isLoading);
   const error = useCampersStore((s) => s.error);
   const initCampers = useCampersStore((s) => s.initCampers);
@@ -19,15 +19,22 @@ const CatalogLoadMore = ({ initialItems, total }: CatalogLoadMoreProps) => {
   }, [initialItems, total, initCampers]);
 
   return (
-    <div>
+    <div className={css.wrap}>
       <CamperList campers={campers} />
 
-      {error && <p>{error}</p>}
+      {error && <p className={css.error}>{error}</p>}
 
       {hasMore && (
-        <button type="button" onClick={loadMore} disabled={isLoading}>
-          {isLoading ? "Loading..." : "Load More"}
-        </button>
+        <div className={css.bottom}>
+          <button
+            type="button"
+            onClick={loadMore}
+            disabled={isLoading}
+            className={css.loadMoreBtn}
+          >
+            {isLoading ? "Loading..." : "Load more"}
+          </button>
+        </div>
       )}
     </div>
   );

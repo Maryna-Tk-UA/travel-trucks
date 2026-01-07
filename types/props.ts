@@ -16,3 +16,12 @@ export type CatalogLoadMoreProps = {
   initialItems: Camper[];
   total: number;
 };
+
+export type CamperBadgesProps = {
+  camper: Camper;
+  limit?: number;
+};
+
+export type CamperCardProps = {
+  camper: Camper;
+};

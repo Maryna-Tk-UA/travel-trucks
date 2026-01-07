@@ -1,5 +1,6 @@
 import type { Camper } from "@/types/camper";
-import Link from "next/link";
+import CamperCard from "../CamperCard/CamperCard";
+import css from "./CamperList.module.css";
 
 type CamperListProps = {
   campers: Camper[];
@@ -7,10 +8,10 @@ type CamperListProps = {
 
 const CamperList = ({ campers }: CamperListProps) => {
   return (
-    <ul>
-      {campers.map((item) => (
-        <li key={item.id}>
-          <Link href={`/catalog/${item.id}`}>{item.name}</Link>
+    <ul className={css.list}>
+      {campers.map((camper) => (
+        <li key={camper.id} className={css.item}>
+          <CamperCard camper={camper} />
         </li>
       ))}
     </ul>

@@ -1,0 +1,36 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 24px;
+}
+
+.loadMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 145px;
+  padding: 14px 28px;
+
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loadMoreBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #b91c1c;
+}
