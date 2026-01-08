@@ -1,3 +1,4 @@
+import OrderForm from "@/components/OrderForm/OrderForm";
 import css from "../Camper.module.css";
 
 const CamperBooking = async () => {
@@ -7,38 +8,7 @@ const CamperBooking = async () => {
       <p className={css.bookingText}>
         Stay connected! We are always ready to help you.
       </p>
-
-      <form className={css.bookingForm} action="#" method="post">
-        <input
-          className={css.input}
-          type="text"
-          name="name"
-          placeholder="Name*"
-        />
-        <input
-          className={css.input}
-          type="email"
-          name="email"
-          placeholder="Email*"
-        />
-        <input
-          className={css.input}
-          type="text"
-          name="date"
-          placeholder="Booking date*"
-        />
-
-        <textarea
-          className={css.textarea}
-          name="comment"
-          placeholder="Comment"
-          rows={4}
-        />
-
-        <button className={css.sendBtn} type="submit">
-          Send
-        </button>
-      </form>
+      <OrderForm />
     </div>
   );
 };

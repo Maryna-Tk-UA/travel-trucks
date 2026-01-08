@@ -77,38 +77,6 @@
   font-size: 14px;
 }
 
-.bookingForm {
-  display: grid;
-  gap: 12px;
-}
-
-.input,
-.textarea {
-  width: 100%;
-  border: 0;
-  outline: none;
-  border-radius: 12px;
-  background: #f2f4f7;
-  padding: 14px 16px;
-  font-size: 14px;
-}
-
-.textarea {
-  resize: none;
-}
-
-.sendBtn {
-  justify-self: center;
-  margin-top: 8px;
-  border: 0;
-  border-radius: 999px;
-  padding: 12px 44px;
-  background: #e44848;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 .top {
   padding: 24px 0;
 }

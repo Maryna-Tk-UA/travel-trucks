@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCampersStore } from "@/lib/store/useCampersStore";
 import CamperBadges from "../CamperBadges/CamperBadges";
 import css from "./CamperCard.module.css";
 import { CamperCardProps } from "@/types/props";
+import {
+  useFavoritesStore,
+  useIsFavorite,
+} from "@/lib/store/useFavoritesStore";
 
 const formatPrice = (value: number) => {
   return `€${value.toFixed(2)}`;
@@ -14,9 +17,9 @@ const formatPrice = (value: number) => {
 const SPRITE_PATH = "/icons/sprite.svg";
 
 const CamperCard = ({ camper }: CamperCardProps) => {
-  const toggleFavorite = useCampersStore((s) => s.toggleFavorite);
-  const fav = useCampersStore((s) => s.isFavorite(camper.id));
   const reviewsCount = camper.reviews?.length ?? 0;
+  const fav = useIsFavorite(camper.id);
+  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
   const img = camper.gallery?.[0]?.thumb || camper.gallery?.[0]?.original || "";
 

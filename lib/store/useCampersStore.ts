@@ -16,7 +16,6 @@ type CampersState = {
   page: number;
 
   filters: CatalogFilters;
-  favorites: string[];
 
   isLoading: boolean;
   error: string | null;
@@ -30,9 +29,6 @@ type CampersState = {
   resetFilters: () => void;
 
   resetCampers: () => void;
-
-  toggleFavorite: (id: string) => void;
-  isFavorite: (id: string) => boolean;
 
   searchCampers: () => Promise<void>;
   loadMore: () => Promise<void>;
@@ -92,18 +88,6 @@ export const useCampersStore = create<CampersState>()(
       resetFilters: () => set({ filters: INITIAL_FILTERS }),
 
       resetCampers: () => set({ campers: [], total: 0, page: 1 }),
-
-      toggleFavorite: (id) =>
-        set((state) => {
-          const exists = state.favorites.includes(id);
-          return {
-            favorites: exists
-              ? state.favorites.filter((x) => x !== id)
-              : [...state.favorites, id],
-          };
-        }),
-
-      isFavorite: (id) => get().favorites.includes(id),
 
       searchCampers: async () => {
         set({
@@ -174,7 +158,6 @@ export const useCampersStore = create<CampersState>()(
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         filters: state.filters,
-        favorites: state.favorites,
       }),
     }
   )
