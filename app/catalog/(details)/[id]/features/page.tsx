@@ -23,6 +23,8 @@ const FeaturesPage = async ({ params }: CamperPageProps) => {
 
       <h3 className={css.blockTitle}>Vehicle details</h3>
 
+      <hr className={css.divider} />
+
       <dl className={css.details}>
         <div className={css.detailRow}>
           <dt>Form</dt>

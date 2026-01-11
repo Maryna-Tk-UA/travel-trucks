@@ -32,7 +32,7 @@ const CamperCard = ({ camper }: CamperCardProps) => {
             alt={camper.name}
             fill
             className={css.image}
-            sizes="(max-width: 768px) 100vw, 280px"
+            sizes="(min-width: 1440px) 290px, 100vw"
           />
         ) : (
           <div className={css.imageFallback} />
@@ -83,7 +83,9 @@ const CamperCard = ({ camper }: CamperCardProps) => {
 
         <p className={css.desc}>{camper.description}</p>
 
-        <CamperBadges camper={camper} />
+        <div className={css.bageWrap}>
+          <CamperBadges camper={camper} />
+        </div>
 
         <Link className={css.moreBtn} href={`/catalog/${camper.id}`}>
           Show more

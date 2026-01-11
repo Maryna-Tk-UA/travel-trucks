@@ -42,7 +42,7 @@ const CamperLayout = async ({
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <section>
+      <section className={css.sectionCamper}>
         <CamperDetailsClient id={id} />
 
         <CamperTabs id={id} />

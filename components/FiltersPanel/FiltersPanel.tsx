@@ -41,6 +41,8 @@ const FiltersPanel = () => {
         <fieldset className={css.fieldset}>
           <legend className={css.sectionTitle}>Vehicle equipment</legend>
 
+          <hr className={css.divider} />
+
           <div className={css.optionsGrid}>
             {EQUIPMENT_OPTIONS.map((o) => (
               <label key={o.key} className={css.card}>
@@ -67,6 +69,8 @@ const FiltersPanel = () => {
 
         <fieldset className={css.fieldset}>
           <legend className={css.sectionTitle}>Vehicle type</legend>
+
+          <hr className={css.divider} />
 
           <div className={css.optionsGrid3}>
             {VEHICLE_TYPE_OPTIONS.map((o) => (
@@ -108,7 +112,7 @@ const FiltersPanel = () => {
               searchCampers();
             }}
           >
-            Reset
+            Reset filters
           </button>
         </div>
       </div>

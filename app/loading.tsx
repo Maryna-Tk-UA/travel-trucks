@@ -1,5 +1,7 @@
+import OverlayLoader from "@/components/OverlayLoader/OverlayLoader";
+
 const Loading = () => {
-  return <p>Loading in progress...</p>;
+  return <OverlayLoader label="Loading page..." />;
 };
 
 export default Loading;

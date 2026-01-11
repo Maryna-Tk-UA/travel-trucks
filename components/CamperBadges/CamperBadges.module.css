@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0;
+  margin-bottom: 22px;
   padding: 0;
   list-style: none;
 }
@@ -11,10 +11,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   padding: 10px 16px;
-  border-radius: 999px;
-  background: #f2f4f7;
+  border-radius: 100px;
+  background-color: #f2f4f7;
 }
 
 .icon {
@@ -23,6 +22,21 @@
 }
 
 .label {
-  font-size: 14px;
-  line-height: 1;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .list {
+    margin-bottom: 100px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
 }

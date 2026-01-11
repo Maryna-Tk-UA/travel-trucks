@@ -1,5 +1,5 @@
 import { Camper } from "@/types/camper";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { CatalogFilters } from "./store/useCampersStore";
 import { buildFilterParams } from "./filtersToParams";
 
@@ -21,14 +21,25 @@ export const getCampers = async ({
   page = 1,
   filters,
 }: getCampersProps = {}) => {
-  const res = await axios.get<CampersResponse>("/campers", {
-    params: {
-      page,
-      limit: PER_PAGE,
-      ...buildFilterParams(filters),
-    },
-  });
-  return res.data;
+  try {
+    const res = await axios.get<CampersResponse>("/campers", {
+      params: {
+        page,
+        limit: PER_PAGE,
+        ...buildFilterParams(filters),
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError;
+
+    if (err.response?.status === 404) {
+      return { total: 0, items: [] };
+    }
+
+    throw error;
+  }
 };
 
 export const getSingleCamper = async (id: string) => {

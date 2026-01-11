@@ -8,8 +8,8 @@ type Props = {
 const CatalogLayout = ({ children, filter }: Props) => {
   return (
     <section className={css.catalog}>
-      <aside>{filter}</aside>
-      <div>{children}</div>
+      <aside className={css.aside}>{filter}</aside>
+      <div className={css.content}>{children}</div>
     </section>
   );
 };

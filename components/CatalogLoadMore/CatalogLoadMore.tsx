@@ -20,7 +20,13 @@ const CatalogLoadMore = ({ initialItems, total }: CatalogLoadMoreProps) => {
 
   return (
     <div className={css.wrap}>
-      <CamperList campers={campers} />
+      {!isLoading && !error && campers.length === 0 ? (
+        <p className={css.empty}>
+          Nothing found with these filters. Try changing your search criteria.
+        </p>
+      ) : (
+        <CamperList campers={campers} />
+      )}
 
       {error && <p className={css.error}>{error}</p>}
 

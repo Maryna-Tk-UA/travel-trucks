@@ -2,7 +2,7 @@ import type { Camper } from "@/types/camper";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { EquipmentKey, VehicleTypeKey } from "@/constants/filter";
-import { getCampers, PER_PAGE } from "@/lib/api"; // твій axios getCampers
+import { getCampers, PER_PAGE } from "@/lib/api";
 
 export type CatalogFilters = {
   location: string;
@@ -49,7 +49,6 @@ export const useCampersStore = create<CampersState>()(
       page: 1,
 
       filters: INITIAL_FILTERS,
-      favorites: [],
 
       isLoading: false,
       error: null,

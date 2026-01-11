@@ -1,17 +1,19 @@
 .bookingForm {
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 
 .input,
 .textarea {
+  max-width: 335px;
   width: 100%;
   border: 0;
   outline: none;
   border-radius: 12px;
   background: #f2f4f7;
-  padding: 14px 16px;
+  padding: 16px 18px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .textarea {
@@ -19,18 +21,58 @@
 }
 
 .sendBtn {
-  justify-self: center;
-  margin-top: 8px;
-  border: 0;
-  border-radius: 999px;
-  padding: 12px 44px;
-  background: #e44848;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 200px;
+  background-color: #e44848;
   color: #fff;
   font-weight: 600;
-  cursor: pointer;
+  transition: background-color 250ms ease;
+  border: none;
 }
 
-/*DatePicker*/
+.sendBtn:hover,
+.sendBtn:focus-visible,
+.sendBtn:active {
+  background-color: #d84343;
+}
+
+@media (min-width: 768px) {
+  .bookingForm {
+    gap: 22px;
+  }
+
+  .sendBtn {
+    max-width: 166px;
+    height: 46px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bookingForm {
+    gap: 14px;
+  }
+
+  .input,
+  .textarea {
+    max-width: 527px;
+    width: 100%;
+  }
+
+  .input {
+    height: 60px;
+  }
+
+  .sendBtn {
+    margin-top: 10px;
+  }
+}
+
 .dateWrap :global(.react-datepicker-wrapper) {
   width: 100%;
 }
@@ -118,7 +160,6 @@
   color: #98a2b3;
 }
 
-/* минулі дні */
 .dp :global(.react-datepicker__day--disabled) {
   color: #98a2b3;
   cursor: not-allowed;

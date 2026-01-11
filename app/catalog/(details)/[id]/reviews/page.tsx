@@ -21,7 +21,6 @@ const renderStars = (value: number) => {
 const ReviewsPage = async ({ params }: CamperPageProps) => {
   const { id } = await params;
   const camper = await getSingleCamper(id);
-  console.log(camper);
 
   const reviews = camper.reviews ?? [];
 
@@ -36,23 +35,24 @@ const ReviewsPage = async ({ params }: CamperPageProps) => {
 
         return (
           <li key={`${r.reviewer_name}-${idx}`} className={css.reviewItem}>
-            <div className={css.avatar} aria-hidden="true">
-              {letter}
-            </div>
-
-            <div className={css.reviewBody}>
-              <div className={css.reviewHead}>
-                <p className={css.reviewerName}>{r.reviewer_name}</p>
-                <div
-                  className={css.stars}
-                  aria-label={`Rating: ${r.reviewer_rating} out of 5`}
-                >
-                  {renderStars(r.reviewer_rating)}
-                </div>
+            <div className={css.reviewWrap}>
+              <div className={css.avatar} aria-hidden="true">
+                {letter}
               </div>
 
-              <p className={css.reviewText}>{r.comment}</p>
+              <div className={css.reviewBody}>
+                <div className={css.reviewHead}>
+                  <p className={css.reviewerName}>{r.reviewer_name}</p>
+                  <div
+                    className={css.stars}
+                    aria-label={`Rating: ${r.reviewer_rating} out of 5`}
+                  >
+                    {renderStars(r.reviewer_rating)}
+                  </div>
+                </div>
+              </div>
             </div>
+            <p className={css.reviewText}>{r.comment}</p>
           </li>
         );
       })}

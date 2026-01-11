@@ -1,20 +1,15 @@
 .tabs {
   display: flex;
+  justify-content: space-around;
   gap: 28px;
-  border-bottom: 1px solid rgba(16, 24, 40, 0.12);
-  margin: 0 0 24px;
+  border-bottom: 1px solid #dadde1;
 }
 
 .tab {
   position: relative;
   padding: 12px 0;
-  color: rgba(16, 24, 40, 0.7);
   text-decoration: none;
   font-weight: 500;
-}
-
-.active {
-  color: #101828;
 }
 
 .active::after {
@@ -26,4 +21,25 @@
   width: 100%;
   background: #e44848;
   border-radius: 999px;
+}
+
+@media (min-width: 768px) {
+  .tabs {
+    justify-content: flex-start;
+  }
+
+  .tab {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .tabs {
+    gap: 40px;
+  }
+
+  .tab {
+    font-size: 20px;
+    padding: 24px 0;
+  }
 }
