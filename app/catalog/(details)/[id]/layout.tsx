@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: CamperPageProps) {
     "View camper details, features, and reviews on TravelTrucks.";
 
   return {
-    title: `${camper.name} | TravelTrucks`,
+    title: camper.name,
     description,
     openGraph: {
       title: `${camper.name} | TravelTrucks`,

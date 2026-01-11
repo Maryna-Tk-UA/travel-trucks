@@ -41,7 +41,7 @@ const CamperCard = ({ camper }: CamperCardProps) => {
 
       <div className={css.content}>
         <div className={css.headerRow}>
-          <h3 className={css.title}>{camper.name}</h3>
+          <h2 className={css.title}>{camper.name}</h2>
 
           <div className={css.priceAndFav}>
             <p className={css.price}>{formatPrice(camper.price)}</p>

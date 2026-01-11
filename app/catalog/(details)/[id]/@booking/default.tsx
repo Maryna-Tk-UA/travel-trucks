@@ -4,7 +4,7 @@ import css from "../Camper.module.css";
 const CamperBooking = async () => {
   return (
     <div className={css.bookingCard}>
-      <h3 className={css.bookingTitle}>Book your campervan now</h3>
+      <h2 className={css.bookingTitle}>Book your campervan now</h2>
       <p className={css.bookingText}>
         Stay connected! We are always ready to help you.
       </p>
