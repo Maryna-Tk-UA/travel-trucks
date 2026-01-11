@@ -1,24 +1,21 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  background-image: url("/heroBackground/Hero-1x.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   min-height: calc(100dvh - 71px);
   margin: 0 auto;
 }
 
-@supports (background-image: image-set(url("/x.webp") 1x)) {
-  .hero {
-    background-image: image-set(
-      url("/heroBackground/Hero-1x.webp") 1x,
-      url("/heroBackground/Hero-2x.webp") 2x
-    );
-  }
+.heroImg {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -114,7 +111,6 @@
 
   .title {
     font-size: 48px;
-    line-height: 0.67;
     margin-bottom: 16px;
   }
 
