@@ -3,9 +3,15 @@ import axios, { AxiosError } from "axios";
 import { CatalogFilters } from "./store/useCampersStore";
 import { buildFilterParams } from "./filtersToParams";
 
-axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
-
 export const PER_PAGE = 4;
+
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
+  "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io"; // fallback щоб не впало
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+});
 
 export type CampersResponse = {
   total: number;
@@ -22,7 +28,7 @@ export const getCampers = async ({
   filters,
 }: getCampersProps = {}) => {
   try {
-    const res = await axios.get<CampersResponse>("/campers", {
+    const res = await api.get<CampersResponse>("/campers", {
       params: {
         page,
         limit: PER_PAGE,
@@ -43,6 +49,6 @@ export const getCampers = async ({
 };
 
 export const getSingleCamper = async (id: string) => {
-  const res = await axios.get<Camper>(`/campers/${id}`);
+  const res = await api.get<Camper>(`/campers/${id}`);
   return res.data;
 };

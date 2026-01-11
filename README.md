@@ -143,7 +143,7 @@ NEXT_PUBLIC_API_URL=...
 
 ## Demo
 
-- Live: (add link)
+- Live: https://travel-trucks-flax-one.vercel.app/
 - Repository: https://github.com/Maryna-Tk-UA/travel-trucks
 
 ## Author

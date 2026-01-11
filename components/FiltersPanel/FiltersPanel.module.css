@@ -25,7 +25,13 @@
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
-  fill: #6c717b;
+  /* fill: #6c717b; */
+  color: #6c717b;
+}
+
+.locationIcon {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .input {
@@ -39,6 +45,19 @@
   padding: 0 12px 0 40px;
   outline: none;
   font-size: 14px;
+}
+
+.input:focus + .inputIcon,
+.input:focus-visible + .inputIcon {
+  color: #111827;
+}
+
+.inputWrap:focus-within .inputIcon {
+  color: #111827;
+}
+
+.inputWrap:has(.input:not(:placeholder-shown)) .inputIcon {
+  color: #111827;
 }
 
 .filtersTitle {
