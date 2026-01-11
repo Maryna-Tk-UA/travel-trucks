@@ -10,6 +10,7 @@ import { getSingleCamper } from "@/lib/api";
 import css from "./Camper.module.css";
 import { CamperLayoutProps, CamperPageProps } from "@/types/props";
 import "react-datepicker/dist/react-datepicker.css";
+import ScrollToTopOnPathname from "@/components/ScrollToTopOnPathname/ScrollToTopOnPathname";
 
 export async function generateMetadata({ params }: CamperPageProps) {
   const { id } = await params;
@@ -42,7 +43,14 @@ const CamperLayout = async ({
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <section className={css.sectionCamper}>
+      <ScrollToTopOnPathname />
+      <section
+        className={css.sectionCamper}
+        aria-labelledby="camper-details-title"
+      >
+        <h2 id="camper-details-title" className="visuallyhidden">
+          Camper details
+        </h2>
         <CamperDetailsClient id={id} />
 
         <CamperTabs id={id} />

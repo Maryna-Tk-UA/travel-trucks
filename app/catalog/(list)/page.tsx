@@ -12,9 +12,9 @@ const Catalog = async () => {
   const response = await getCampers();
 
   return (
-    <section>
+    <div>
       <CatalogLoadMore initialItems={response.items} total={response.total} />
-    </section>
+    </div>
   );
 };
 

@@ -7,10 +7,10 @@ type Props = {
 
 const CatalogLayout = ({ children, filter }: Props) => {
   return (
-    <section className={css.catalog}>
+    <div className={css.catalog}>
       <aside className={css.aside}>{filter}</aside>
       <div className={css.content}>{children}</div>
-    </section>
+    </div>
   );
 };
 

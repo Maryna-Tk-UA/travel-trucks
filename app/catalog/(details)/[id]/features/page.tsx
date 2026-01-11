@@ -21,7 +21,7 @@ const FeaturesPage = async ({ params }: CamperPageProps) => {
     <div className={css.featuresCard}>
       <CamperBadges camper={camper} />
 
-      <h3 className={css.blockTitle}>Vehicle details</h3>
+      <h2 className={css.blockTitle}>Vehicle details</h2>
 
       <hr className={css.divider} />
 
